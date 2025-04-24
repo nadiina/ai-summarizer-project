@@ -38,7 +38,7 @@ class DocumentLLMProcessor:
                 return content, count
             return content
         except Exception as e:
-            self.logger.error(f"Error during generation: {e}\n{traceback.format_exc()}")
+            self.logger.error(f"Error під час генерації: {e}\n{traceback.format_exc()}")
             raise
 
     def _log(self, file_name, output, token_tracker: TokenTracker):
@@ -63,7 +63,7 @@ class DocumentLLMProcessor:
             with open(log_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(entry, ensure_ascii=False) + "\n")
         except Exception as e:
-            self.logger.error(f"Error while logging output: {e}\n{traceback.format_exc()}")
+            self.logger.error(f"Error на виході логування: {e}\n{traceback.format_exc()}")
             raise
 
     def run(self, path: str, text: str, tracker: TokenTracker):
@@ -81,13 +81,12 @@ class DocumentLLMProcessor:
                     print(output)
                     result = output
 
-                self.logger.info(f"{self.title_prefix} згенеровано успішно.")
                 self._log(os.path.basename(path), output, tracker)
                 tracker.write_report()
 
-            self.logger.info(f"Total processing time (incl. logging): {ctx.duration:.2f} seconds.")
+            self.logger.info(f"Загально витрачено часу (включаючи логування): {ctx.duration:.2f} сек.")
             return result
 
         except Exception as e:
-            self.logger.error(f"Error during document processing: {e}\n{traceback.format_exc()}")
+            self.logger.error(f"Error під час обробки документа: {e}\n{traceback.format_exc()}")
             raise

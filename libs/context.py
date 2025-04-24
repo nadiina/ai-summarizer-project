@@ -1,5 +1,3 @@
-# libs/context.py
-
 import time
 import traceback
 from libs.logger import get_logger
@@ -10,7 +8,7 @@ logger = get_logger(__name__)
 class ProcessingContextManager:
     def __enter__(self):
         self.start_time = time.time()
-        logger.info("Processing started.")
+        logger.info("Процес аналізу текста розпочато.")
         return self
 
     def __exit__(self, exc_type, exc_value, tb):

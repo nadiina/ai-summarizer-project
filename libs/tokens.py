@@ -2,7 +2,6 @@ import os
 import time
 import json
 from datetime import datetime
-from libs.logger import log_info
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPORT_FILE = os.path.join(BASE_DIR, "logs", "token_usage.jsonl")
@@ -47,7 +46,7 @@ class TokenTracker:
         with open(REPORT_FILE, "a", encoding="utf-8") as f:
             f.write(json.dumps(report_entry, ensure_ascii=False) + "\n")
 
-        log_info(f"Token usage записано у {REPORT_FILE}")
+        # log_info(f"Token usage записано у {REPORT_FILE}")
 
         total_tokens = self.get_total_tokens()
         summary = {"total_tokens": 0, "last_used": now_iso}
@@ -65,4 +64,3 @@ class TokenTracker:
         with open(SUMMARY_FILE, "w", encoding="utf-8") as sf:
             json.dump(summary, sf, ensure_ascii=False, indent=2)
 
-        log_info(f"Сумарна статистика оновлена: {summary['total_tokens']} токенів, останнє використання: {summary['last_used']}")

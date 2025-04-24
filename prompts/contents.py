@@ -1,4 +1,4 @@
-def contents_prompt(document_text: str = "Текст для формування змісту не надійшов, проінформуй про це") -> list:
+def contents_prompt(document_text: str = "Текст не надійшов, напиши про це") -> list:
     return [
         {
             "role": "system",
