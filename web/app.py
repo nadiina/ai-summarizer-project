@@ -26,7 +26,7 @@ def process_file(file_path, action):
         log_error(f"Невідома дія: {action}")
         raise ValueError("Невідома дія")
 
-    log_info(f"Файл '{file_path}' успішно оброблено для дії '{action}'")
+    # log_info(f"Файл '{file_path}' успішно оброблено для дії '{action}'")
     return result
 
 

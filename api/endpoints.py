@@ -59,7 +59,7 @@ def create_app():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         try:
             file.save(file_path)
-            log_info(f"Файл '{filename}' збережено за шляхом '{file_path}'")
+            # log_info(f"Файл '{filename}' збережено за шляхом '{file_path}'")
         except Exception as e:
             log_error(f"Помилка при збереженні файлу '{filename}': {e}")
             return jsonify({'error': 'Не вдалося зберегти файл'}), 500
