@@ -4,6 +4,7 @@ from libs.tokens import TokenTracker
 from prompts.contents import contents_prompt
 from settings.llm_processor import DocumentLLMProcessor
 
+
 def process_contents(file_path: str, text: str) -> str:
     processor = DocumentLLMProcessor(
         name="contents",
