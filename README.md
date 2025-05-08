@@ -197,7 +197,8 @@ flowchart LR
     E --> I[Трекер токенів]
     H & I --> J[Каталог logs/]
   end
-  A & B & C & D --> E
+  A & B & C --> E
+  D --> C
 ```
 
 
